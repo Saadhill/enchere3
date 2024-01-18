@@ -1,0 +1,14 @@
+<header xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-entete">
+
+    <h1 id="nav-title"> ENI - Enchères </h1>
+
+    <nav>
+        <ul>
+            <li data-th-if="${#authorization.expression('isAuthenticated()')}"> <a href=""> Enchères </a> </li>
+            <li data-th-if="${#authorization.expression('isAuthenticated()')}"> <a href=""> Vendre un article </a> </li>
+            <li data-th-if="${#authorization.expression('isAuthenticated()')}"> <a href=""> Mon profil </a> </li>
+            <li data-th-if="${!#authorization.expression('isAuthenticated()')}"> <a href="/login"> S'inscrire - Se connecter </a> </li>
+            <li data-th-if="${#authorization.expression('isAuthenticated()')}"> <a href="/logout"> Déconnexion </a> </li>
+        </ul>
+    </nav>
+</header>

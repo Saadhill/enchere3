@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-replace="~{layouts/layout :: frag-layout(titre=~{:: title},
+														contenu=~{:: main},
+														ressource=~{::#ressource-css})
+										}">
+<head>
+    <title>Erreur</title>
+    <th:block id="ressource-css">
+        <link rel="stylesheet" data-th-href="@{/css/demo-error-http.css}" />
+    </th:block>
+</head>
+<body>
+<main class="center-main">
+    <h1 class="cards" data-th-text="Erreur + ${status}"></h1>
+    <form>
+        <ul class="flex-outer cards">
+            <li data-th-switch="${status}">
+                <label data-th-case="403">Vous n'êtes pas autorisé à accéder à la ressource</label>
+                <label data-th-case="404">La ressource n'existe pas</label>
+                <label data-th-case="500">La serveur est injoignable</label>
+                <label data-th-case="*"> Kaput !</label>
+            </li>
+            <li><a data-th-href="@{/}">Retour à l'accueil</a></li>
+        </ul>
+    </form>
+</main>
+</body>
+</html>

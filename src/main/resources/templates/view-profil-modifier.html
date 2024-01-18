@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-replace="~{layouts/layout :: frag-layout(titre=~{:: title},
+														contenu=~{:: main},
+														ressource=~{:: #ressource-css})
+										}">
+<head>
+    <title>Profil de l'utilisateur</title>
+    <th:block id="ressource-css">
+        <link rel="stylesheet" data-th-href="@{/css/demo-table.css}" />
+        <link rel="stylesheet" data-th-href="@{/css/demo-form.css}">
+    </th:block>
+</head>
+<body>
+<main>
+    <form>
+        <ul class="flex-outer">
+            <li>
+                <label for="inputPseudo"> Pseudo : </label>
+                <input type="text" name="pseudo" id="inputPseudo"
+                       data-th-field="${Utilisateur.pseudo}" />
+            </li>
+
+            <li>
+                <label for="inputNom"> Nom : </label>
+                <input type="text" name="nom" id="inputNom"
+                       data-th-field="${Utilisateur.nom}" />
+            </li>
+
+            <li>
+                <label for="inputPrenom"> Prénom : </label>
+                <input type="text" name="prenom" id="inputPrenom"
+                       data-th-field="${Utilisateur.prenom}" />
+            </li>
+
+            <li>
+                <label for="inputEmail"> Email : </label>
+                <input type="email" name="email" id="inputEmail"
+                       data-th-field="${Utilisateur.email}" />
+            </li>
+            <li>
+                <label for="inputTelephone"> Téléphone : </label>
+                <input type="tel" name="tel" id="inputTelephone"
+                       data-th-field="${Utilisateur.telephone}" />
+            </li>
+            <li>
+                <label for="inputRue"> Rue : </label>
+                <input type="text" name="rue" id="inputRue"
+                       data-th-field="${Utilisateur.rue}" />
+            </li>
+
+            <li>
+                <label for="inputcodePostal"> Code postal : </label>
+                <input type="text" name="codePostal" id="inputcodePostal"
+                       data-th-field="${Utilisateur.codePostal}" />
+            </li>
+
+            <li>
+                <label for="inputVille"> Ville : </label>
+                <input type="text" name="ville" id="inputVille"
+                       data-th-field="${Utilisateur.ville}" />
+            </li>
+
+            <button type="submit">Modifier</button>
+
+        </ul>
+    </form>
+</main>
+</body>
+</html>

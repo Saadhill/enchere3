@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		data-th-replace="~{layouts/layout :: frag-layout(titre=~{:: title},
+														contenu=~{:: main},
+														ressource=~{:: #ressource-css})
+										}">
+<head>
+<title>Connexion</title>
+<th:block id="ressource-css">
+	<link rel="stylesheet" data-th-href="@{/css/demo-form.css}">
+</th:block>
+</head>
+<body>
+	<main>
+		<form data-th-action="@{/login}" method="post">
+		<h1>Connexion à l'application</h1>
+			<ul class="flex-outer">
+				<li>
+					<label for="inputUser">Pseudo</label>
+					<input id="inputUser" type="text" name="username" />
+				</li>
+				<li>
+					<label for="inputPwd">Mot de passe</label>
+					<input id="inputPwd" type="password" name="password" />
+				</li>
+				<li>
+					<button type="submit">Connexion</button>
+				</li>
+			</ul>
+		</form>
+	</main>	
+</body>
+</html>

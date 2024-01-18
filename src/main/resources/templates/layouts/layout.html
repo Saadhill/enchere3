@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-layout(titre, contenu, ressource)">
+
+<head>
+    <meta charset="UTF-8">
+    <title data-th-replace="${titre}"></title>
+    <link rel="stylesheet" data-th-href="@{/css/layout.css}">
+    <link rel="stylesheet" data-th-href="@{/css/general.css}">
+
+    <th:block data-th-replace="${ressource} ?: ~{}"></th:block>
+</head>
+
+<body>
+
+<div data-th-replace="~{fragments/fragment-entete :: frag-entete}"></div>
+
+<div data-th-replace="${contenu}">
+</div>
+
+<div data-th-replace="~{fragments/fragment-footer :: frag-footer}"></div>
+
+</body>
+
+</html>

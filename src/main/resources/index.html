@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-replace="~{layouts/layout :: frag-layout(titre=~{:: title},
+														contenu=~{:: main},
+														ressource=~{})
+										}">
+<head>
+    <title>Liste des enchères</title>
+</head>
+<body>
+<main class="center-main">
+    <h1 style="text-align:center;">Liste des enchères</h1>
+
+    <section class="center-section">
+        <h2>Filtres : </h2>
+        <input type="search" id="recherche" name="recherche" />
+        <button>Rechercher</button>
+    </section>
+    <br>
+    <section>
+        <label for="categorie">Catégories :</label>
+        <select name="categorie" id="categorie">
+            <option value="toutesCatégories">Toutes</option>
+            <option value="informatique">Informatique</option>
+            <option value="ameublement">Ameublement</option>
+            <option value="vetement">Vêtement</option>
+            <option value="sport">Sport&Loisirs</option>
+        </select>
+    </section>
+
+    <!-- ici on affiche les enchères en cours-->
+    <section>
+        <ul class="article-list">
+            <li th:each="enchere : ${encheres}" class="article-item">
+                <div class="article-box">
+                    <h3 th:text="${article.nom}"></h3>
+                    <img th:src="${enchere.article.image}" alt="Image de l'article" class="article-image" />
+                    <p>Prix: <span th:text="${enchere.article.prix}"> points</span></p>
+                    <p>Fin de l'enchère: <span th:text="${enchere.article.date_fin_encheres}"></span></p>
+                    <p>Vendeur: <span th:text="${enchere.article.utilisateur.pseudo}"></span></p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+</main>
+</body>
+</html>
